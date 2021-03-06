@@ -8,7 +8,7 @@ services:
       target: 3179
     restart: unless-stopped
     volumes:
-    - pk_config:/config:rw
+    - pk_config:/home/perkeep/.config/perkeep:rw
     - pk_storage:/storage:rw
 volumes:
   pk_config: {}

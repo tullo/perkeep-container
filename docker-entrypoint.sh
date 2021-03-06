@@ -3,7 +3,7 @@
 # Description: create default config and launch perkeep.
 # Reference: https://perkeep.org/doc/server-config
 
-CONFIG="/config/server-config.json"
+CONFIG="$HOME/.config/perkeep/server-config.json"
 USERPASS="perkeep:perkeep"
 
 set -e
