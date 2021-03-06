@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  perkeep:
+    build: .
+    image: tullo/perkeep:0.1.0
+    ports:
+    - published: 3179
+      target: 3179
+    restart: unless-stopped
+    volumes:
+    - pk_config:/config:rw
+    - pk_storage:/storage:rw
+volumes:
+  pk_config: {}
+  pk_storage: {}
