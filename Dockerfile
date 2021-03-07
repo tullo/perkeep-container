@@ -10,9 +10,12 @@ RUN go run make.go -static=true -v
 
 # Production image
 FROM alpine:3.13.2
-RUN apk --no-cache add ca-certificates libjpeg-turbo-utils jq
-RUN addgroup -g 3000 -S perkeep && adduser -u 100000 -S perkeep -G perkeep --disabled-password \
-    && mkdir -p /perkeep && chown perkeep:perkeep /perkeep
+RUN apk --no-cache add ca-certificates libjpeg-turbo-utils jq tzdata && \
+    cp /usr/share/zoneinfo/Europe/Copenhagen /etc/localtime && \
+    echo "Europe/Copenhagen" >  /etc/timezone && \
+    apk del tzdata
+RUN addgroup -g 3000 -S perkeep && adduser -u 100000 -S perkeep -G perkeep --disabled-password && \
+    mkdir /perkeep && chown perkeep:perkeep /perkeep
 RUN mkdir -p /home/perkeep/.config/perkeep && chown perkeep: /home/perkeep/.config/perkeep
 RUN mkdir /storage && chown perkeep: /storage
 COPY --from=build_stage /go/bin/* /usr/local/bin/
