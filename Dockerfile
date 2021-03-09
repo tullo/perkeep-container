@@ -4,7 +4,8 @@ ENV CGO_ENABLED='1'
 ENV GO111MODULE='on'
 
 RUN apk add --no-cache git
-RUN git clone https://github.com/perkeep/perkeep.git perkeep.org
+RUN git clone https://github.com/tullo/b2.git perkeep-b2
+RUN git clone https://github.com/tullo/perkeep.git perkeep.org
 WORKDIR /go/perkeep.org
 RUN go run make.go -static=true -v
 
