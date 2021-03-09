@@ -12,8 +12,9 @@ This container image is available as an automated build on [Docker Hub](https://
 
 - Build the image: `docker-compose build`
 - Push to dockerhub: `docker-compose push`
-- Start the service: `docker-compose up`
-- Stop the service: `docker-compose down`
+- Start the perkeep container: `docker-compose up`
+- Stop the perkeep container: `docker-compose stop`
+- Stop and remove perkeep container: `docker-compose down`
 
 ## Deployment
 
