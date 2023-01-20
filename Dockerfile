@@ -1,5 +1,5 @@
 # Build the Go binaries.
-FROM golang:1.16.0-alpine3.13 as build_stage
+FROM golang:1.17.3-alpine3.13 as build_stage
 ENV CGO_ENABLED='1'
 ENV GO111MODULE='on'
 
