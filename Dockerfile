@@ -10,7 +10,7 @@ WORKDIR /go/perkeep.org
 RUN go run make.go -static=true -v
 
 # Production image
-FROM alpine:3.22.1
+FROM alpine:3.22.2
 RUN apk --no-cache add ca-certificates libjpeg-turbo-utils jq tzdata && \
     cp /usr/share/zoneinfo/Europe/Copenhagen /etc/localtime && \
     echo "Europe/Copenhagen" >  /etc/timezone && \
